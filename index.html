@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="index.css" type="text/css" rel="stylesheet" >
+</head>
+
+<body>
+
+
+    <button class="button" onclick="generateJson()" type="button" id="generate">Generate</button>
+
+
+  <div id="image ">
+
+      </div>
+
+
+
+ <script>
+
+
+
+ function generateJson() {
+
+   var json_data = document.getElementById('image');
+  // const jsonButton = document.querySelector('#generate');
+
+   var randno = Math.floor(Math.random() * 998);
+
+   const url1 = "https://xkcd.now.sh/";
+   var ran = randno;
+
+   const endpoint = `${url1}${ran}`;
+
+ const xhr = new XMLHttpRequest();
+ //xhr.resposeType = 'json';
+
+
+ xhr.onreadystatechange = function()  {
+   if(this.readyState == 4 && this.status == 200)
+      {
+      const jcontent = JSON.parse(xhr.responseText);
+        var image =jcontent.img;
+
+        var image2 = '<img src="'+ image + '">';
+        document.write(image2);
+
+      }
+
+   };
+
+ xhr.open('GET', endpoint);
+ xhr.send();
+
+ }
+
+ //jsonButton.addEventListener('click', generateJson);
+
+
+
+  </script>
+</body>
+</html>
