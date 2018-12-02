@@ -10,3 +10,8 @@
     margin: 4px 2px;
     cursor: pointer;
 }
+
+.imagecontainter {
+    position: absolute;
+    padding-top: 100px;
+}
