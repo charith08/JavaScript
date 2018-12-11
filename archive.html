@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Comics-Archive </title>
+  <meta charset="utf-8">
+  <link href="index.css" type="text/css" rel="stylesheet" >
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</head>
+
+<body onload="archive()">
+  <div class="topnav">
+    <a href="#home">Commutatus</a>
+    <a  href="index.html">Generator</a>
+    <a class="active" href="archive.html">Archive</a>
+</div>
+
+<section class="restofthepage2">
+  <div class="cardcontainer">
+
+    <div id="card" class="card">
+
+      <div class="number" id="num"> </div>
+
+      <a href="#" id="link"><div id="Name" class="Name">  </div> </a>
+      <div class="datentime">
+        <div class="lastv"> Last Viewed: </div>
+        <div class="dateyo" id="date"> </div>
+        <div id="time"> </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+let i,newCard,objectNum,object,creatingCard,DateTime;
+function archive()
+    {
+
+      let i;
+      for(i=1;i<=localStorage.counter;i++)
+      {
+        creatingCard=document.getElementById("card");
+        let archive=creatingCard.cloneNode(true);
+        archive.id="card"+i;
+        creatingCard.parentNode.appendChild(archive);
+        newCard="card"+i;
+        let x=document.getElementById(newCard).getElementsByClassName("number");
+          objectNum="index"+i;
+          object=JSON.parse(localStorage[objectNum]);
+          DateTime=object.date.split("T");
+          Datearray=DateTime[0].split("-");
+          MonthNames=[
+            "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+          ];
+          finalDate=Datearray[2]+" "+MonthNames[Datearray[1]-1]+" "+Datearray[0];
+          document.getElementById(newCard).querySelector("#link").href = object.link;
+          document.getElementById(newCard).querySelector("#Name").innerHTML = object.name;
+          document.getElementById(newCard).querySelector("#date").innerHTML = finalDate;
+          document.getElementById(newCard).querySelector("#time").innerHTML = DateTime[1].split(".")[0];
+          document.getElementById(newCard).querySelector("#num").innerHTML=i+".";
+      }
+      creatingCard.style.display="none";
+    }
+
+</script>
+
+
+
+
+
+</body>
+</html>
