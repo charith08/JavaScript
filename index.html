@@ -4,13 +4,43 @@
   <title> Comics </title>
   <meta charset="utf-8">
   <link href="index.css" type="text/css" rel="stylesheet" >
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
 
 <body>
 
-    <button class="button" onclick="generateJson()" type="button" id="generate">Generate</button>
+  <div class="topnav">
+    <a href="#home"> Commutatus </a>
+    <a class="active" href="index.html">Generator</a>
+    <a href="archive.html">Archive</a>
+</div>
 
-    <img id="comicdisplay" class="imagecontainter" src="" height="500" width="700">
+ <section class="restofthepage">
+
+    <div class="buttoncontainer">
+      <button class="button" onclick="generateJson()" type="button" id="generate">Generate</button>
+  </div>
+
+    <div class="comiccontainer">
+    <!--  <div class="boxshadow"> -->
+
+        <div class="heading">
+          <div id="numbercontainer">
+          </div>
+
+          <div id="titlecontainer" class="titlecontainer">
+          </div>
+       </div>
+
+      <div class="imagecontainter">
+        <img id="comicdisplay" class="imagecontainter2" src="" >
+      </div>
+  <!--  </div> -->
+    </div>
+  <!--   -->
+
+
+</section>
 
 
     <script src="index.js">   </script>
