@@ -17,7 +17,7 @@
 <section class="restofthepage2">
   <div class="cardcontainer">
 
-    <div id="card" class="card">
+    <div id="card" class="card invisible">
 
       <div class="number" id="num"> </div>
 
@@ -33,11 +33,12 @@
 </section>
 
 <script>
-let i,newCard,objectNum,object,creatingCard,DateTime;
+let i,newCard,objectNum,object,creatingCard,DateTime,xyz;
 function archive()
     {
 
       let i;
+
       for(i=1;i<=localStorage.counter;i++)
       {
         creatingCard=document.getElementById("card");
@@ -46,21 +47,23 @@ function archive()
         creatingCard.parentNode.appendChild(archive);
         newCard="card"+i;
         let x=document.getElementById(newCard).getElementsByClassName("number");
-          objectNum="index"+i;
-          object=JSON.parse(localStorage[objectNum]);
-          DateTime=object.date.split("T");
+        //  objectNum="index"+i;
+           xyz = JSON.parse(localStorage.getItem("objectArray"));
+          //object=JSON.parse(localStorage[objectNum]);
+          object = xyz[i-1];
+          DateTime = object.date.split("T");
           Datearray=DateTime[0].split("-");
           MonthNames=[
             "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
           ];
           finalDate=Datearray[2]+" "+MonthNames[Datearray[1]-1]+" "+Datearray[0];
           document.getElementById(newCard).querySelector("#link").href = object.link;
-          document.getElementById(newCard).querySelector("#Name").innerHTML = object.name;
+          document.getElementById(newCard).querySelector("#Name").innerHTML = object.safe_title;
           document.getElementById(newCard).querySelector("#date").innerHTML = finalDate;
           document.getElementById(newCard).querySelector("#time").innerHTML = DateTime[1].split(".")[0];
           document.getElementById(newCard).querySelector("#num").innerHTML=i+".";
       }
-      creatingCard.style.display="none";
+    //creatingCard.style.display='none';
     }
 
 </script>
