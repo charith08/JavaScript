@@ -11,6 +11,7 @@
 
   .topnav {
     overflow: hidden;
+    width: 100%;
     border-bottom: 1px solid Silver;
     text-transform: uppercase;
   }
@@ -41,6 +42,7 @@
   background-color: #f0f0f0;
   min-height: 95vh;
   height:auto;
+  width: 100%;
   /*padding-bottom: 5%;*/
 }
 
@@ -68,6 +70,7 @@
     border-radius: 5px;
 }
 
+
 .comiccontainer {
   margin: 0;
   display: flex;
@@ -86,6 +89,11 @@
   align-items: center;
   border: 1px solid Silver;
   box-shadow: 2px 2px Silver;
+  margin-bottom: 25px;
+}
+
+#boxshadow {
+  display: none;
 }
 
 .heading {
@@ -96,6 +104,7 @@
   background-color: white;
   height: 50px;
   width: 700px;
+  min-width: 700px;
   font-size: 25px;
   padding-left: 10px;
 }
@@ -130,6 +139,7 @@
 .cardcontainer{
 
   display: grid;
+  min-width: 500px;
 
 }
 
@@ -145,7 +155,9 @@
 
 }
 
-
+#card{
+  display: none;
+}
 /*.card :last-child {
   border-left: 1px solid Silver;
   height: 70%;
